@@ -31,8 +31,8 @@ app.use(express.static(__dirname + '/static'));
 app.use('/less', less(__dirname + '/less'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: true;
-}))
+  extended: true
+}));
 app.use(methodOverride());
 app.use(cookieSession({keys:['SEC123', '321CES']}));
 

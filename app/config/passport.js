@@ -1,7 +1,7 @@
 'use strict';
-var config_master = require(__dirname + '/master.js');
-var GITHUB_CLIENT_ID = config_master.github.clientId;
-var GITHUB_CLIENT_SECRET = config_master.github.clientSecret;
+var configMaster = require(__dirname + '/master.js');
+var GITHUB_CLIENT_ID = configMaster.github.clientId;
+var GITHUB_CLIENT_SECRET = configMaster.github.clientSecret;
 var GitHubStrategy = require('passport-github').Strategy;
 var traceur = require('traceur');
 var User = traceur.require(__dirname + '/../models/user.js');
@@ -21,7 +21,7 @@ module.exports = (passport)=>{
   passport.use(new GitHubStrategy({
     clientID: GITHUB_CLIENT_ID,
     clientSecret: GITHUB_CLIENT_SECRET,
-    callbackURL: config_master.github.callbackUrl
+    callbackURL: configMaster.github.callbackUrl
     },
     (accessToken, refreshToken, profile, done)=>{
       process.nextTick(()=>{
