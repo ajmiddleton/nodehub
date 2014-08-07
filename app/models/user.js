@@ -1,6 +1,7 @@
+/* jshint unused:false */
 'use strict';
 
-var config_master = require(__dirname + '/../config/master.js');
+var configMaster = require(__dirname + '/../config/master.js');
 var users = global.nss.db.collection('users');
 var traceur = require('traceur');
 var Base = traceur.require(__dirname + '/base.js');
@@ -33,7 +34,7 @@ class User{
   }
 
   getGitRepos(fn){
-    var url = `https://api.github.com/users/${this.username}/repos?per_page=100&page=0?${config_master.github.accessToken}`;
+    var url = `https://api.github.com/users/${this.username}/repos?per_page=100&page=0?${configMaster.github.accessToken}`;
     request({headers:{'User-Agent':'nodehub'}, url:url}, (err, response, body)=>{
       var repos = JSON.parse(body);
       repos = repos.map(r=>r.name);

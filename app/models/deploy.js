@@ -9,8 +9,8 @@ var fs = require('fs');
 var rimraf = require('rimraf');
 var jf = require('jsonfile');
 var AWS = require('aws-sdk');
-var config_master = require(__dirname + '/../config/master.js');
-AWS.config.update(config_master.aws.access);
+var configMaster = require(__dirname + '/../config/master.js');
+AWS.config.update(configMaster.aws.access);
 var route53 = new AWS.Route53();
 
 class Deploy{
@@ -26,7 +26,7 @@ class Deploy{
     //==============RUN SCRIPTS==========//
     newDeploy.cloneAndInstall((cloneResults)=>{
       newDeploy.updateProxy(()=>{
-        Deploy.addRecordSet(newDeploy.name + config_master.domain, (recordResults)=>{
+        Deploy.addRecordSet(newDeploy.name + configMaster.domain, (recordResults)=>{
           newDeploy.processManagement((processResults)=>{
             var results = cloneResults + recordResults + processResults;
             newDeploy.results = results;
@@ -64,7 +64,7 @@ class Deploy{
     console.log('===========INSIDE ADDRECORDSET===========');
     console.log(domain);
     var params = {
-      'HostedZoneId': config_master.aws.hostedZoneId,
+      'HostedZoneId': configMaster.aws.hostedZoneId,
       'ChangeBatch': {
         'Changes': [
           {
@@ -75,7 +75,7 @@ class Deploy{
               'TTL' : 86400,
               'ResourceRecords':[
                 {
-                  'Value': config_master.aws.ip
+                  'Value': configMaster.aws.ip
                 }
               ]
             }
@@ -122,7 +122,7 @@ class Deploy{
       var keys = Object.keys(options);
       var lastKey = keys[keys.length-1];
       var nextPort = (options[lastKey].split(':')[2] * 1) + 1;
-      var domain = deploy.name + config_master.domain;
+      var domain = deploy.name + configMaster.domain;
       options[domain] = `http://localhost:${nextPort}`;
       deploy.port = nextPort;
       jf.writeFile(__dirname + '/../options.json', options, err=>{
