@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title= title
+    link(href='/less/app.css', rel='stylesheet')
+    script(src='/js/vendor/jquery-2.1.1.js')
+    link(href="//maxcdn.bootstrapcdn.com/bootswatch/3.1.1/darkly/bootstrap.min.css", rel="stylesheet")
+    link(href='/css/octicons/octicons.css', rel='stylesheet')
+  body
+    nav.navbar.navbar-fixed-top.navbar-default(role='navigation')
+      .container-fluid
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#nav-collapse')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand.nodehub-brand(href='/')
+
+          #nav-collapse.collapse.navbar-collapse
+            ul.nav.navbar-nav
+              if(user)
+                li
+                  a.glyphicon.glyphicon-user.btn.btn-warning.navbar-btn(href='/account')  Account
+                li
+                  a.octicon.octicon-repo-clone.btn.btn-warning.navbar-btn(href='/repos')  Deploy a new Repo
+            ul.nav.navbar-nav.navbar-right(style='margin-right:5px;')
+              li
+                if(!user)
+                  a.btn.btn-success.navbar-btn(href='/auth/github')
+                    span.octicon.octicon-mark-github  Login with GitHub
+              li
+                if(user)
+                  a.btn.btn-warning.navbar-btn.glyphicon.glyphicon-log-out(href='/logout')  Logout
+    #content-container
+      block content
+
+    script(src='/js/vendor/lodash-2.4.1.js')
+    script(src='/js/vendor/moment-2.6.0.js')
+    script(src='/js/vendor/traceur.js')
+    script(src='/socket.io/socket.io.js')
+    script(src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')
+    script(src='/js/es5/main.js')
+    script(src='/js/es6/compiled/main.js')
+
+    block scripts

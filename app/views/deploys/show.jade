@@ -1,0 +1,14 @@
+extends ../shared/template
+
+block content
+  h1 Deployment Results
+  h3
+    a(href='http://#{deployed.name}.ajmiddleton.net') http://#{deployed.name}.ajmiddleton.net
+  .row
+    .col-md-2
+    .col-md-8
+      .well= results
+    .col-md-2
+
+block scripts
+  script(src='/js/es6/compiled/deploys-show.js')

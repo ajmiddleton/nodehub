@@ -1,0 +1,29 @@
+extends ../shared/template
+
+block content
+  h1 Configure your deployment
+  h3 Repo to deploy: #{repo}
+
+  .row
+    .col-md-2
+    .col-md-8
+      .panel.panel-success
+        .panel-heading
+          h3 Settings
+        .panel-body
+          form#new.form-horizontal.col-md-6(action='/deploy', method='POST')
+            input(type='hidden', name='repo', value='#{repo}')
+            fieldset
+              .form-group
+                label.control-label(for='inputName') Subdomain: example.nodehub.com
+                input#inputName.form-control(type='text', name='name', placeholder='example', autofocus=true)
+                p#status
+              .form-group
+                button#submit.btn.btn-warning Deploy
+              .form-group
+                p#loading
+                  p This may take a few minutes
+    .col-md-2
+
+block scripts
+  script(src='/js/es6/compiled/deploys-new.js')

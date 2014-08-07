@@ -1,0 +1,21 @@
+extends ../shared/template
+
+block content
+  .row
+    .col-md-2
+    .col-md-8
+      .panel.panel-success
+        .panel-heading
+          h3 Select a Repo to Deploy
+        .panel-body
+          table.table.table-striped.table-hover
+            thead
+              tr
+                th Your Repos
+            tbody
+              each repo in repos
+                tr
+                  td
+                    a(href='/deploy/#{repo}')= repo
+
+    .col-md-2
