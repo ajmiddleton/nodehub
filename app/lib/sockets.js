@@ -51,8 +51,6 @@ function addUserToSocket(socket){
     user.socketId = socket.id;
     socket.nss = {};
     socket.nss.user = user;
-    // socket.emit('online', user);
-    // socket.broadcast.emit('online', user);
   });
 }
 
