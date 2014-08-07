@@ -33,7 +33,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
->>>>>>> f5bc187874d9629bd306885febb4ef0669b99cae
 app.use(methodOverride());
 app.use(cookieSession({keys:['SEC123', '321CES']}));
 
