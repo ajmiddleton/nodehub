@@ -9,6 +9,7 @@ Your file structure should look like this.
           -proxy-server
           -nodehub
 2. Edit your proxy-server app.js to look like this:
+
         var httpProxy = require('http-proxy')
         var proxy = httpProxy.createProxy();
         var jf = require('jsonfile');
