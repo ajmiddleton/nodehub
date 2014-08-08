@@ -1,5 +1,3 @@
 {
-  "nodehub.ajmiddleton.net": "http://localhost:5000",
-  "resource.ajmiddleton.net": "http://localhost:5001",
-  "node-tunes.ajmiddleton.net": "http://localhost:5002"
+  "nodehub.ajmiddleton.net": "http://localhost:5000"
 }
