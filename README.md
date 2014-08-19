@@ -44,21 +44,21 @@ Not only is "master.js" used in the application, but it has been added to the .g
 file so that your personal information is not leaked onto github.
 
 For GitHub:
-1. Log into github.com and click on "Account Settings" in the top right corner.
-2. Under Developer Applications, click on **Register new application.**
-3. Name the application nodehub, fill in whatever descriptions you'd like, and enter
-**"nodehub.[yourdomain.com]/auth/github/callback"** as the authorization callback url.
-4. This will produce your github clientId and clientSecret in master.js.
-5. Now, click **Generate new token** next to Personal access tokens. This will produce your accessToken in master.js.
+  1. Log into github.com and click on "Account Settings" in the top right corner.
+  2. Under Developer Applications, click on **Register new application.**
+  3. Name the application nodehub, fill in whatever descriptions you'd like, and enter
+  **"nodehub.[yourdomain.com]/auth/github/callback"** as the authorization callback url.
+  4. This will produce your github clientId and clientSecret in master.js.
+  5. Now, click **Generate new token** next to Personal access tokens. This will produce your accessToken in master.js.
 
 For AWS:
-1. Log into your AWS management console and click on **IAM.**
-2. Then click on **Users** and then **Create New User**
-3. This will generate accessKeyId and secretAccessKey.
-4. Now go back to the main console and navigate to **Route 53**.
-5. Click on **Hosted Zones** to view your domains. Your HostedZoneId will be listed here.
-6. Select your hosted zone, and click **Go To Record Sets**. The ip address for your VM will be listed here.
-7. While in your record sets, add one for "nodehub". (eg. nodehub.yourdomain.com)
+  1. Log into your AWS management console and click on **IAM.**
+  2. Then click on **Users** and then **Create New User**
+  3. This will generate accessKeyId and secretAccessKey.
+  4. Now go back to the main console and navigate to **Route 53**.
+  5. Click on **Hosted Zones** to view your domains. Your HostedZoneId will be listed here.
+  6. Select your hosted zone, and click **Go To Record Sets**. The ip address for your VM will be listed here.
+  7. While in your record sets, add one for "nodehub". (eg. nodehub.yourdomain.com)
 
 Nodehub should be configured and ready to go! Don't forget to rename example-master.js to master.js ;)
 
