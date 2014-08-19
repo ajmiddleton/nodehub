@@ -74,7 +74,7 @@ Any other custom installation commands should go here.
       ...
       "scripts": {
         "start"     : "node app/app.js;",
-        "nodehub"   : "npm install",
+        "nodehub"   : "npm install"
       },
       ...
 
