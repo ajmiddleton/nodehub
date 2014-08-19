@@ -71,6 +71,13 @@ Any project that you want to deploy must include a "nodehub" script in your pack
 For most purposes, this will just include "npm install" (or "npm run nss" for us NSS students).
 Any other custom installation commands should go here.
 
+      ...
+      "scripts": {
+        "start"     : "node app/app.js;",
+        "nodehub"   : "npm install",
+      },
+      ...
+
 ### Starting / Using Nodehub
 Nodehub is intended to only be run on an as-needed basis. In its default configuration,
 there is no check for specific github users, so anyone with a valid github account could technically deploy
